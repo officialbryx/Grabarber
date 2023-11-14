@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
 
-class BProfile1 extends StatelessWidget {
+class BProfile1 extends StatefulWidget {
+  @override
+  _BProfile1 createState() => _BProfile1();
+}
+
+class _BProfile1 extends State<BProfile1> {
+  bool isLiked = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -44,27 +50,26 @@ class BProfile1 extends StatelessWidget {
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 10, 0),
                       child: Row(
                         children: [
+                          Text(
+                            isLiked ? 'Added To Favorites' : 'Add To Favorites',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 10, 10, 0),
-                            child: Row(
-                              children: [
-                                Text(
-                                  'Add To Favorites',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5, 0, 0, 0),
-                                  child: Icon(
-                                    Icons.favorite,
-                                    color: Color(0xFFFF0010),
-                                    size: 24,
-                                  ),
-                                ),
-                              ],
+                            padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  isLiked = !isLiked;
+                                });
+                              },
+                              child: Icon(
+                                Icons.favorite,
+                                color:
+                                    isLiked ? Color(0xFFFF0010) : Colors.grey,
+                                size: 24,
+                              ),
                             ),
                           ),
                         ],
@@ -90,6 +95,8 @@ class BProfile1 extends StatelessWidget {
                     'Taylor Sheesh',
                     style: TextStyle(
                       color: Colors.white,
+                      fontSize: 24, // Adjust the font size as needed
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
@@ -97,7 +104,7 @@ class BProfile1 extends StatelessWidget {
                   padding: EdgeInsetsDirectional.fromSTEB(15, 20, 15, 0),
                   child: Container(
                     width: 370,
-                    height: 300,
+                    height: 250,
                     decoration: BoxDecoration(
                       color: Color(0xFFE3C5AD),
                       borderRadius: BorderRadius.circular(15),
@@ -115,6 +122,12 @@ class BProfile1 extends StatelessWidget {
                                     10, 10, 0, 0),
                                 child: Text(
                                   'Services Offered:',
+                                  style: TextStyle(
+                                    fontSize:
+                                        16, // Adjust the font size as needed
+                                    fontWeight: FontWeight
+                                        .bold, // Add font weight (e.g., bold)
+                                  ),
                                 ),
                               ),
                             ),
@@ -142,6 +155,12 @@ class BProfile1 extends StatelessWidget {
                                     EdgeInsetsDirectional.fromSTEB(10, 5, 0, 0),
                                 child: Text(
                                   'Working Hours:',
+                                  style: TextStyle(
+                                    fontSize:
+                                        16, // Adjust the font size as needed
+                                    fontWeight: FontWeight
+                                        .bold, // Add font weight (e.g., bold)
+                                  ),
                                 ),
                               ),
                             ),
@@ -169,6 +188,12 @@ class BProfile1 extends StatelessWidget {
                                     EdgeInsetsDirectional.fromSTEB(10, 5, 0, 0),
                                 child: Text(
                                   'Rating:',
+                                  style: TextStyle(
+                                    fontSize:
+                                        16, // Adjust the font size as needed
+                                    fontWeight: FontWeight
+                                        .bold, // Add font weight (e.g., bold)
+                                  ),
                                 ),
                               ),
                             ),
@@ -223,6 +248,12 @@ class BProfile1 extends StatelessWidget {
                                     EdgeInsetsDirectional.fromSTEB(10, 5, 0, 0),
                                 child: Text(
                                   'Contact Info:',
+                                  style: TextStyle(
+                                    fontSize:
+                                        16, // Adjust the font size as needed
+                                    fontWeight: FontWeight
+                                        .bold, // Add font weight (e.g., bold)
+                                  ),
                                 ),
                               ),
                             ),
@@ -245,6 +276,12 @@ class BProfile1 extends StatelessWidget {
                                     EdgeInsetsDirectional.fromSTEB(10, 5, 0, 0),
                                 child: Text(
                                   'Pricing:',
+                                  style: TextStyle(
+                                    fontSize:
+                                        16, // Adjust the font size as needed
+                                    fontWeight: FontWeight
+                                        .bold, // Add font weight (e.g., bold)
+                                  ),
                                 ),
                               ),
                             ),
@@ -270,7 +307,12 @@ class BProfile1 extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-                            child: Text('Book Appointment'),
+                            child: Container(
+                              width: 200, // Set the desired width
+                              child: Center(
+                                child: Text('Book Appointment'),
+                              ),
+                            ),
                           ),
                         ),
                       ],
