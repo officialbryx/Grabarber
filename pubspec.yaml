@@ -16,9 +16,12 @@ dev_dependencies:
   flutter_lints: ^2.0.2
 
 flutter:
+  assets:
+    - assets/
   uses-material-design: true
-  # assets:
-  #  - images/a_dot_burr.jpeg
+
+  # - assets/images/GRABARBERWHITE.png
+
   #  - images/a_dot_ham.jpeg
   # fonts:
   #   - family: Schyler

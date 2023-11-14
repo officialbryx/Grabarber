@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 import 'BBooking.dart';
 
-class BProfile2 extends StatefulWidget {
+class BProfile3 extends StatefulWidget {
   @override
-  _BProfile2 createState() => _BProfile2();
+  _BProfile3 createState() => _BProfile3();
 }
 
-class _BProfile2 extends State<BProfile2> {
+class _BProfile3 extends State<BProfile3> {
   bool isLiked = false;
 
   @override
@@ -80,7 +80,7 @@ class _BProfile2 extends State<BProfile2> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(360),
                       child: Image.network(
-                        'https://verafiles.org/wp-content/uploads/2015/05/Dingdong-Dantes.jpg',
+                        'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Zayn_Wiki_%28cropped%29.jpg/800px-Zayn_Wiki_%28cropped%29.jpg',
                         width: 150,
                         height: 150,
                         fit: BoxFit.cover,
@@ -90,7 +90,7 @@ class _BProfile2 extends State<BProfile2> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                     child: Text(
-                      'Nathan Cruz',
+                      'Juan Tonio',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24, // Adjust the font size as needed
