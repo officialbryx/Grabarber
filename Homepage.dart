@@ -1,18 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'GetStartedPage.dart';
 import 'PopularB.dart';
 import 'TrendingH.dart';
+import 'Settings.dart';
 
 class Homepage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  // Sample data for the carousel
+  final List<String> carouselImages = [
+    "https://i.imgur.com/xpiswhK.png",
+    "https://i.imgur.com/abcdefg.png", // Add more image URLs as needed
+  ];
+
+  final List<String> carouselTitles = [
+    "Title 1",
+    "Title 2", // Add corresponding titles
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: Color(0xFF331B1B),
+      backgroundColor: Color(0xFFE0E0E0),
       appBar: AppBar(
-        backgroundColor: Color(0xFF542D2D),
+        backgroundColor: Color(0xFF212121),
         title: Image.asset(
           "assets/GRABARBERWHITE.png",
           height: 20,
@@ -50,7 +63,7 @@ class Homepage extends StatelessWidget {
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Color(0xFF331B1B),
+                color: Color(0xFF212121), // App Bar Background Color
               ),
               child: Text(
                 'User',
@@ -72,6 +85,10 @@ class Homepage extends StatelessWidget {
               onTap: () {
                 // Handle settings feature
                 Navigator.pop(context); // Close the drawer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Settings()),
+                );
               },
             ),
             ListTile(
@@ -89,12 +106,30 @@ class Homepage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.only(top: 20.0),
-              child: Image.network(
-                "https://i.imgur.com/xpiswhK.png",
-                width: 300.0,
-                height: 200.0,
-                fit: BoxFit.cover,
+              padding: EdgeInsets.only(top: 10),
+              child: CarouselSlider(
+                items: carouselImages.map((item) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.symmetric(horizontal: 5.0),
+                        decoration: BoxDecoration(
+                          color: Colors.amber,
+                        ),
+                        child: Image.network(
+                          item,
+                          fit: BoxFit.cover,
+                        ),
+                      );
+                    },
+                  );
+                }).toList(),
+                options: CarouselOptions(
+                  autoPlay: true,
+                  aspectRatio: 2.0,
+                  enlargeCenterPage: true,
+                ),
               ),
             ),
             SizedBox(height: 20),
@@ -105,7 +140,7 @@ class Homepage extends StatelessWidget {
                 Text(
                   "Welcome to Grabarber!",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
                   ),
@@ -127,7 +162,7 @@ class Homepage extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
+                    primary: Color(0xFFFFD700),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -137,7 +172,7 @@ class Homepage extends StatelessWidget {
                   child: Text(
                     "Get Started",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 20, // Increased font size
                     ),
                   ),
@@ -154,14 +189,12 @@ class Homepage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            PopularB(), // Navigate to Popular Barbers page
+                        builder: (context) => PopularB(),
                       ),
                     );
-                    // Handle the action for Popular Barbers button
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
+                    primary: Color(0xFFFFD700),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -171,8 +204,8 @@ class Homepage extends StatelessWidget {
                   child: Text(
                     "Popular Barbers",
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20, // Increased font size
+                      color: Colors.black,
+                      fontSize: 20,
                     ),
                   ),
                 ),
@@ -188,14 +221,12 @@ class Homepage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            TrendingH(), // Navigate to Popular Barbers page
+                        builder: (context) => TrendingH(),
                       ),
                     );
-                    // Handle the action for Trending Hairstyles button
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.blue,
+                    primary: Color(0xFFFFD700),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -205,8 +236,8 @@ class Homepage extends StatelessWidget {
                   child: Text(
                     "Trending Hairstyles",
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20, // Increased font size
+                      color: Colors.black,
+                      fontSize: 20,
                     ),
                   ),
                 ),
