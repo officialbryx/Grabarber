@@ -12,21 +12,20 @@ class _GetStartedPage extends State<GetStartedPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF331B1B),
+      backgroundColor: Color(0xFFE0E0E0),
       appBar: AppBar(
-        backgroundColor: Color(0xFF542D2D),
+        backgroundColor: Color(0xFF212121),
         title: Text(
           "Getting Started",
           style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
           icon: Icon(
-            Icons.arrow_back, // Change the icon to a back button
+            Icons.arrow_back,
             color: Colors.white,
             size: 30,
           ),
           onPressed: () {
-            // Navigate back to the home page
             Navigator.pop(context);
           },
         ),
@@ -56,7 +55,7 @@ class _GetStartedPage extends State<GetStartedPage> {
               Text(
                 "Welcome, User!",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                 ),
@@ -71,7 +70,7 @@ class _GetStartedPage extends State<GetStartedPage> {
                       // TODO: Implement Set up profile functionality
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.blue,
+                      primary: Color(0xFFFFD700),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -80,7 +79,7 @@ class _GetStartedPage extends State<GetStartedPage> {
                     child: Text(
                       "Set up Profile",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 20,
                       ),
                     ),
@@ -94,14 +93,13 @@ class _GetStartedPage extends State<GetStartedPage> {
                   width: 300.0,
                   child: ElevatedButton(
                     onPressed: () {
-                      // Navigate to the next page when the button is pressed
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => BSelection()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.blue,
+                      primary: Color(0xFFFFD700),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -110,7 +108,7 @@ class _GetStartedPage extends State<GetStartedPage> {
                     child: Text(
                       "Book a Barber",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 20,
                       ),
                     ),
@@ -127,7 +125,7 @@ class _GetStartedPage extends State<GetStartedPage> {
                       // TODO: Implement FAQ functionality
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.blue,
+                      primary: Color(0xFFFFD700),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -136,7 +134,7 @@ class _GetStartedPage extends State<GetStartedPage> {
                     child: Text(
                       "FAQ",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 20,
                       ),
                     ),
@@ -153,7 +151,7 @@ class _GetStartedPage extends State<GetStartedPage> {
                       // TODO: Implement Learn More functionality
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.blue,
+                      primary: Color(0xFFFFD700),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -162,7 +160,7 @@ class _GetStartedPage extends State<GetStartedPage> {
                     child: Text(
                       "Learn More",
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 20,
                       ),
                     ),
