@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:helloworld/BSelection.dart';
+import 'package:helloworld/signin.dart';
 import 'GetStartedPage.dart';
 import 'PopularB.dart';
 import 'TrendingH.dart';
@@ -79,7 +81,8 @@ class _HomepageState extends State<Homepage> {
             ListTile(
               title: Text('Logout'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SignInScreen()));
               },
             ),
           ],
@@ -301,8 +304,6 @@ class HistoryTab extends StatelessWidget {
 class BookingTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Booking Tab Content'),
-    );
+    return BSelection();
   }
 }
