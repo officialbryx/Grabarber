@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'BSelection.dart';
+import 'SetUpProfile.dart';
 
 class GetStartedPage extends StatefulWidget {
   @override
@@ -67,7 +68,10 @@ class _GetStartedPage extends State<GetStartedPage> {
                   width: 300.0,
                   child: ElevatedButton(
                     onPressed: () {
-                      // TODO: Implement Set up profile functionality
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SetUpProfile()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Color(0xFFFFD700),
