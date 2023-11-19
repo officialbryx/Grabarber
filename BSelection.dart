@@ -9,51 +9,25 @@ class BSelection extends StatefulWidget {
   _BSelection createState() => _BSelection();
 }
 
+ScrollController _scrollController = ScrollController();
+
 class _BSelection extends State<BSelection> {
   bool isLiked = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF331B1B),
-        title: Text(
-          'Barber Selection',
-        ),
-        leading: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-          child: IconButton(
-            onPressed: () {
-              // Navigate to the previous page when the button is pressed
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.arrow_back,
-              color: Colors.white,
-              size: 24,
-            ),
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
-            child: Icon(
-              Icons.search,
-              color: Colors.white,
-              size: 25,
-            ),
-          ),
-        ],
-      ),
       body: Center(
         child: Scrollbar(
+          controller: _scrollController,
           isAlwaysShown: true,
           child: SingleChildScrollView(
+            controller: _scrollController,
             child: Container(
               width: 391,
               height: 850,
               decoration: BoxDecoration(
-                color: Color(0xFF542D2D),
+                color: Color(0xFFE0E0E0),
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -64,7 +38,7 @@ class _BSelection extends State<BSelection> {
                       width: 410,
                       height: 185,
                       decoration: BoxDecoration(
-                        color: Color(0xFFE3C5AD),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
@@ -250,17 +224,18 @@ class _BSelection extends State<BSelection> {
                                                 BorderRadius.circular(5),
                                           ),
                                           side: BorderSide(
-                                            color: Colors.blue,
+                                            color: Color(0xFFFFD700),
                                             width: 1,
                                           ),
-                                          backgroundColor: Colors.blue,
+                                          backgroundColor: Color(0xFFFFD700),
                                         ),
                                         child: Text(
                                           'See More...',
                                           style: TextStyle(
                                             fontFamily: 'Readex Pro',
-                                            color: Colors.white,
+                                            color: Colors.black,
                                             fontSize: 12,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                       ),
@@ -280,7 +255,7 @@ class _BSelection extends State<BSelection> {
                       width: 410,
                       height: 185,
                       decoration: BoxDecoration(
-                        color: Color(0xFFE3C5AD),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
@@ -466,17 +441,18 @@ class _BSelection extends State<BSelection> {
                                                 BorderRadius.circular(5),
                                           ),
                                           side: BorderSide(
-                                            color: Colors.blue,
+                                            color: Color(0xFFFFD700),
                                             width: 1,
                                           ),
-                                          backgroundColor: Colors.blue,
+                                          backgroundColor: Color(0xFFFFD700),
                                         ),
                                         child: Text(
                                           'See More...',
                                           style: TextStyle(
                                             fontFamily: 'Readex Pro',
-                                            color: Colors.white,
+                                            color: Colors.black,
                                             fontSize: 12,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                       ),
@@ -496,7 +472,7 @@ class _BSelection extends State<BSelection> {
                       width: 410,
                       height: 185,
                       decoration: BoxDecoration(
-                        color: Color(0xFFE3C5AD),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
@@ -690,17 +666,18 @@ class _BSelection extends State<BSelection> {
                                                   BorderRadius.circular(5),
                                             ),
                                             side: BorderSide(
-                                              color: Colors.blue,
+                                              color: Color(0xFFFFD700),
                                               width: 1,
                                             ),
-                                            backgroundColor: Colors.blue,
+                                            backgroundColor: Color(0xFFFFD700),
                                           ),
                                           child: Text(
                                             'See More...',
                                             style: TextStyle(
                                               fontFamily: 'Readex Pro',
-                                              color: Colors.white,
+                                              color: Colors.black,
                                               fontSize: 12,
+                                              fontWeight: FontWeight.bold,
                                             ),
                                           ),
                                         ),
@@ -719,7 +696,7 @@ class _BSelection extends State<BSelection> {
                       width: 410,
                       height: 185,
                       decoration: BoxDecoration(
-                        color: Color(0xFFE3C5AD),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
@@ -905,17 +882,18 @@ class _BSelection extends State<BSelection> {
                                                 BorderRadius.circular(5),
                                           ),
                                           side: BorderSide(
-                                            color: Colors.blue,
+                                            color: Color(0xFFFFD700),
                                             width: 1,
                                           ),
-                                          backgroundColor: Colors.blue,
+                                          backgroundColor: Color(0xFFFFD700),
                                         ),
                                         child: Text(
                                           'See More...',
                                           style: TextStyle(
                                             fontFamily: 'Readex Pro',
-                                            color: Colors.white,
+                                            color: Colors.black,
                                             fontSize: 12,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
                                       ),
