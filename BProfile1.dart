@@ -14,9 +14,9 @@ class _BProfile1 extends State<BProfile1> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            backgroundColor: Color(0xFF331B1B),
+            backgroundColor: Color(0xFFE0E0E0),
             appBar: AppBar(
-              backgroundColor: Color(0xFF542D2D),
+              backgroundColor: Color(0xFF212121),
               title: const Text("Barber's Profile"),
               leading: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
@@ -37,44 +37,6 @@ class _BProfile1 extends State<BProfile1> {
                 top: true,
                 child: SingleChildScrollView(
                     child: Column(mainAxisSize: MainAxisSize.max, children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(200, 10, 10, 0),
-                        child: Row(
-                          children: [
-                            Text(
-                              isLiked
-                                  ? 'Added To Favorites'
-                                  : 'Add To Favorites',
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
-                              child: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    isLiked = !isLiked;
-                                  });
-                                },
-                                child: Icon(
-                                  Icons.favorite,
-                                  color:
-                                      isLiked ? Color(0xFFFF0010) : Colors.grey,
-                                  size: 24,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                     child: ClipRRect(
@@ -88,11 +50,11 @@ class _BProfile1 extends State<BProfile1> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
                     child: Text(
                       'Taylor Sheesh',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 24, // Adjust the font size as needed
                         fontWeight: FontWeight.bold,
                       ),
@@ -106,7 +68,7 @@ class _BProfile1 extends State<BProfile1> {
                         Container(
                           width: 370,
                           decoration: BoxDecoration(
-                            color: Color(0xFFE3C5AD),
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
                           ),
                           child: Column(
@@ -172,6 +134,8 @@ class _BProfile1 extends State<BProfile1> {
                               ),
                               Row(
                                 mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment
+                                    .start, // Align contents to the top
                                 children: [
                                   Align(
                                     alignment:
@@ -192,18 +156,20 @@ class _BProfile1 extends State<BProfile1> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 6, 0, 0),
                                     child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment
+                                          .start, // Align contents to the top
                                       children: [
-                                        Align(
-                                          alignment: AlignmentDirectional(
-                                              -1.00, -1.00),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 5, 0, 0),
-                                            child: Row(
-                                              children: List.generate(
-                                                4,
-                                                (index) => Icon(
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  2, 3, 0, 0),
+                                          child: Row(
+                                            children: List.generate(
+                                              4,
+                                              (index) => Padding(
+                                                padding: EdgeInsets.only(
+                                                    bottom: 2.0),
+                                                child: Icon(
                                                   Icons.star,
                                                   size: 16,
                                                   color: Colors.orange,
@@ -212,16 +178,12 @@ class _BProfile1 extends State<BProfile1> {
                                             ),
                                           ),
                                         ),
-                                        Align(
-                                          alignment: AlignmentDirectional(
-                                              -1.00, -1.00),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 5, 0, 0),
-                                            child: Text(
-                                              '(35)',
-                                            ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  2, 1, 0, 0),
+                                          child: Text(
+                                            '(35)',
                                           ),
                                         ),
                                       ],
@@ -295,7 +257,7 @@ class _BProfile1 extends State<BProfile1> {
                           width: 370,
                           margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                           decoration: BoxDecoration(
-                            color: Colors.grey[200],
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
                             boxShadow: [
                               BoxShadow(
@@ -397,7 +359,7 @@ class _BProfile1 extends State<BProfile1> {
                               );
                             },
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.blue,
+                              primary: Color(0xFFFFD700),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -405,7 +367,12 @@ class _BProfile1 extends State<BProfile1> {
                             child: Container(
                               width: 200,
                               child: Center(
-                                child: Text('Book Appointment'),
+                                child: Text(
+                                  'Book an Appointment',
+                                  style: TextStyle(
+                                    color: Colors.black, // Updated font
+                                  ),
+                                ),
                               ),
                             ),
                           ),
