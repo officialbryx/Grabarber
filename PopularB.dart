@@ -26,10 +26,10 @@ class _PopularBState extends State<PopularB> {
           "Grabarber",
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Color(0xFF542D2D),
+        backgroundColor: Color(0xFF212121), // Match the color scheme
       ),
       body: Container(
-        color: Color(0xFF331B1B),
+        color: Color(0xFFE0E0E0),
         child: SingleChildScrollView(
           child: Column(
             children: [
