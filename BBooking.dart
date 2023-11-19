@@ -40,14 +40,14 @@ class _BBookingState extends State<BBooking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF542D2D),
+      backgroundColor: Color(0xFFE0E0E0),
       appBar: AppBar(
         title: Text('Book Appointment'),
-        backgroundColor: Color(0xFF331B1B),
+        backgroundColor: Color(0xFF212121),
       ),
       body: Container(
         decoration: BoxDecoration(
-          color: Color(0xFFE3C5AD), // Set the background color to white
+          color: Colors.white, // Set the background color to white
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
@@ -73,11 +73,29 @@ class _BBookingState extends State<BBooking> {
               children: [
                 ElevatedButton(
                   onPressed: () => _selectDate(context),
-                  child: Text('Select Date'),
+                  child: Text(
+                    'Select Date',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Color(0xFFFFD700)),
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: () => _selectTime(context),
-                  child: Text('Select Time'),
+                  child: Text(
+                    'Select Time',
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Color(0xFFFFD700)),
+                  ),
                 ),
               ],
             ),
@@ -129,7 +147,16 @@ class _BBookingState extends State<BBooking> {
                   //   ),
                   // );
                 },
-                child: Text('Confirm Booking'),
+                child: Text(
+                  'Confirm Booking',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Color(0xFFFFD700)),
+                ),
               ),
           ],
         ),
