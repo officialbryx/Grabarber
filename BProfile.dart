@@ -14,9 +14,9 @@ class _BProfile extends State<BProfile> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            backgroundColor: Color(0xFF331B1B),
+            backgroundColor: Color(0xFFE0E0E0),
             appBar: AppBar(
-              backgroundColor: Color(0xFF542D2D),
+              backgroundColor: Color(0xFF212121),
               title: const Text("Barber's Profile"),
               leading: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
@@ -37,62 +37,28 @@ class _BProfile extends State<BProfile> {
                 top: true,
                 child: SingleChildScrollView(
                     child: Column(mainAxisSize: MainAxisSize.max, children: [
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(200, 10, 10, 0),
-                        child: Row(
-                          children: [
-                            Text(
-                              isLiked
-                                  ? 'Added To Favorites'
-                                  : 'Add To Favorites',
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
-                              child: GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    isLiked = !isLiked;
-                                  });
-                                },
-                                child: Icon(
-                                  Icons.favorite,
-                                  color:
-                                      isLiked ? Color(0xFFFF0010) : Colors.grey,
-                                  size: 24,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(360),
-                      child: Image.network(
-                        'https://hips.hearstapps.com/hmg-prod/images/index-hartmod-1544461814.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*',
-                        width: 150,
-                        height: 150,
-                        fit: BoxFit.cover,
+                    child: Container(
+                      padding: EdgeInsets.only(
+                          top: 8.0), // Adjust the top padding as needed
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(360),
+                        child: Image.network(
+                          'https://hips.hearstapps.com/hmg-prod/images/index-hartmod-1544461814.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*',
+                          width: 150,
+                          height: 150,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5),
                     child: Text(
                       'Kevin Durant',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 24, // Adjust the font size as needed
                         fontWeight: FontWeight.bold,
                       ),
@@ -106,7 +72,7 @@ class _BProfile extends State<BProfile> {
                         Container(
                           width: 370,
                           decoration: BoxDecoration(
-                            color: Color(0xFFE3C5AD),
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
                           ),
                           child: Column(
@@ -172,6 +138,8 @@ class _BProfile extends State<BProfile> {
                               ),
                               Row(
                                 mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment
+                                    .start, // Align contents to the top
                                 children: [
                                   Align(
                                     alignment:
@@ -192,18 +160,20 @@ class _BProfile extends State<BProfile> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 6, 0, 0),
                                     child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment
+                                          .start, // Align contents to the top
                                       children: [
-                                        Align(
-                                          alignment: AlignmentDirectional(
-                                              -1.00, -1.00),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 5, 0, 0),
-                                            child: Row(
-                                              children: List.generate(
-                                                4,
-                                                (index) => Icon(
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  2, 3, 0, 0),
+                                          child: Row(
+                                            children: List.generate(
+                                              4,
+                                              (index) => Padding(
+                                                padding: EdgeInsets.only(
+                                                    bottom: 2.0),
+                                                child: Icon(
                                                   Icons.star,
                                                   size: 16,
                                                   color: Colors.orange,
@@ -212,16 +182,12 @@ class _BProfile extends State<BProfile> {
                                             ),
                                           ),
                                         ),
-                                        Align(
-                                          alignment: AlignmentDirectional(
-                                              -1.00, -1.00),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 5, 0, 0),
-                                            child: Text(
-                                              '(35)',
-                                            ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  2, 1, 0, 0),
+                                          child: Text(
+                                            '(35)',
                                           ),
                                         ),
                                       ],
@@ -229,6 +195,7 @@ class _BProfile extends State<BProfile> {
                                   ),
                                 ],
                               ),
+
                               Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -295,7 +262,7 @@ class _BProfile extends State<BProfile> {
                           width: 370,
                           margin: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                           decoration: BoxDecoration(
-                            color: Colors.grey[200],
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(15),
                             boxShadow: [
                               BoxShadow(
@@ -354,14 +321,22 @@ class _BProfile extends State<BProfile> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Row(
-                                            children: List.generate(
-                                              4,
-                                              (index) => Icon(
-                                                Icons.star,
-                                                size: 16,
-                                                color: Colors.orange,
-                                              ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsets.only(bottom: 2.0),
+                                            child: Row(
+                                              children: [
+                                                Row(
+                                                  children: List.generate(
+                                                    4,
+                                                    (index) => Icon(
+                                                      Icons.star,
+                                                      size: 16,
+                                                      color: Colors.orange,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
                                           Text(
@@ -397,7 +372,7 @@ class _BProfile extends State<BProfile> {
                               );
                             },
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.blue,
+                              primary: Color(0xFFFFD700),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -405,7 +380,12 @@ class _BProfile extends State<BProfile> {
                             child: Container(
                               width: 200,
                               child: Center(
-                                child: Text('Book Appointment'),
+                                child: Text(
+                                  'Book an Appointment',
+                                  style: TextStyle(
+                                    color: Colors.black, // Updated font
+                                  ),
+                                ),
                               ),
                             ),
                           ),
