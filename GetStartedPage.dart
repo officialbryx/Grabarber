@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'BSelection.dart';
 import 'SetUpProfile.dart';
 
 class GetStartedPage extends StatefulWidget {
@@ -82,35 +81,6 @@ class _GetStartedPage extends State<GetStartedPage> {
                     ),
                     child: Text(
                       "Set up Profile",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Container(
-                  width: 300.0,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => BSelection()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFFFD700),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      minimumSize: Size(double.infinity, 60),
-                    ),
-                    child: Text(
-                      "Book a Barber",
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,
