@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:latlong2/latlong.dart';
 
 class BBooking extends StatefulWidget {
   @override
@@ -7,7 +9,8 @@ class BBooking extends StatefulWidget {
 
 class _BBookingState extends State<BBooking> {
   DateTime? _selectedDate;
-  TimeOfDay? _selectedTime; // New variable for selected time
+  TimeOfDay? _selectedTime;
+  LatLng? _selectedLocation;
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? pickedDate = await showDatePicker(
@@ -37,6 +40,21 @@ class _BBookingState extends State<BBooking> {
     }
   }
 
+  Future<void> _selectLocation(BuildContext context) async {
+    LatLng? selectedLatLng = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MapScreen(),
+      ),
+    );
+
+    if (selectedLatLng != null) {
+      setState(() {
+        _selectedLocation = selectedLatLng;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,14 +65,14 @@ class _BBookingState extends State<BBooking> {
       ),
       body: Container(
         decoration: BoxDecoration(
-          color: Colors.white, // Set the background color to white
+          color: Colors.white,
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 2,
               blurRadius: 5,
-              offset: Offset(0, 2), // changes position of shadow
+              offset: Offset(0, 2),
             ),
           ],
         ),
@@ -99,8 +117,24 @@ class _BBookingState extends State<BBooking> {
                 ),
               ],
             ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () => _selectLocation(context),
+              child: Text(
+                'Select Location',
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Color(0xFFFFD700)),
+              ),
+            ),
             SizedBox(height: 20),
-            if (_selectedDate != null && _selectedTime != null)
+            if (_selectedDate != null &&
+                _selectedTime != null &&
+                _selectedLocation != null)
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -115,6 +149,10 @@ class _BBookingState extends State<BBooking> {
                   ),
                   Text(
                     'Time: ${_selectedTime!.format(context)}',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  Text(
+                    'Location: ${_selectedLocation!.latitude}, ${_selectedLocation!.longitude}',
                     style: TextStyle(fontSize: 16),
                   ),
                 ],
@@ -135,7 +173,9 @@ class _BBookingState extends State<BBooking> {
               ),
             ),
             SizedBox(height: 20),
-            if (_selectedDate != null && _selectedTime != null)
+            if (_selectedDate != null &&
+                _selectedTime != null &&
+                _selectedLocation != null)
               ElevatedButton(
                 onPressed: () {
                   // Add logic to confirm the booking and navigate to the next screen
@@ -160,6 +200,58 @@ class _BBookingState extends State<BBooking> {
               ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class MapScreen extends StatefulWidget {
+  @override
+  _MapScreenState createState() => _MapScreenState();
+}
+
+class _MapScreenState extends State<MapScreen> {
+  LatLng? _selectedLocation;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Select Location'),
+      ),
+      body: FlutterMap(
+        options: MapOptions(
+          center: LatLng(0.0, 0.0),
+          zoom: 15.0,
+        ),
+        layers: [
+          TileLayerOptions(
+            urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            subdomains: ['a', 'b', 'c'],
+          ),
+          MarkerLayerOptions(
+            markers: _selectedLocation != null
+                ? [
+                    Marker(
+                      point: _selectedLocation!,
+                      builder: (BuildContext context) {
+                        return Icon(
+                          Icons.location_pin,
+                          color: Colors.red,
+                          size: 40.0,
+                        );
+                      },
+                    ),
+                  ]
+                : [],
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pop(context, _selectedLocation);
+        },
+        child: Icon(Icons.check),
       ),
     );
   }
